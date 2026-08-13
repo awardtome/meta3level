@@ -80,7 +80,7 @@ install.packages(c("meta", "metasens", "puniform", "readxl", "openxlsx"))
 Agent Skills 的 AI 根据编码表生成直接调用 `metafor` 的原生 R 代码。具体见
 [AI skill 安装与使用](docs/AI_SKILL.md)。
 
-## 最简示例：相关系数
+## 示例：相关系数
 
 ```r
 library(meta3level)
