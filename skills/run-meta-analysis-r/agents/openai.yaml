@@ -1,0 +1,4 @@
+interface:
+  display_name: "Run Meta-Analysis in R"
+  short_description: "Generate auditable multilevel meta-analysis workflows"
+  default_prompt: "Use $run-meta-analysis-r to generate and verify a complete native R meta-analysis workflow for my dataset."

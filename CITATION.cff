@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use meta3level, please cite this software and the underlying statistical methods."
+title: "meta3level: Automated Multilevel and Conventional Meta-Analysis Workflows"
+type: software
+version: 0.6.2
+date-released: 2026-08-13
+authors:
+  - family-names: "awardtome"
+license: MIT
+repository-code: "https://github.com/awardtome/meta3level"
+keywords:
+  - meta-analysis
+  - multilevel meta-analysis
+  - three-level meta-analysis
+  - publication bias
+  - PET-PEESE
+  - R

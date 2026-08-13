@@ -1,0 +1,32 @@
+name: Feature request
+description: Propose a statistically defined addition or workflow improvement
+title: "[Feature]: "
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Research problem
+      description: Describe the design and why the current workflow is insufficient.
+    validations:
+      required: true
+  - type: textarea
+    id: method
+    attributes:
+      label: Proposed statistical method
+      description: Include primary references, assumptions, and reporting scale.
+    validations:
+      required: true
+  - type: textarea
+    id: interface
+    attributes:
+      label: Suggested R interface and output
+      render: r
+  - type: textarea
+    id: validation
+    attributes:
+      label: Validation strategy
+      description: Explain how results could be checked against a trusted implementation or formula.
+    validations:
+      required: true
+
