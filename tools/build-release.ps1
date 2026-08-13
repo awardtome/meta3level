@@ -16,7 +16,7 @@ $release = [System.IO.Path]::GetFullPath($ReleaseDirectory)
 $githubZip = Join-Path $release ("meta3level-github-v{0}.zip" -f $Version)
 $sourceTar = Join-Path $release ("meta3level_{0}.tar.gz" -f $Version)
 $skillZip = Join-Path $release ("run-meta-analysis-r-skill-v{0}.zip" -f $SkillVersion)
-$manifest = Join-Path $release ("meta3level-整套文件清单-v{0}.txt" -f $Version)
+$manifest = Join-Path $release ("meta3level-file-manifest-v{0}.txt" -f $Version)
 $checksums = Join-Path $release "SHA256SUMS.txt"
 
 $builtTar = Join-Path $root ("meta3level_{0}.tar.gz" -f $Version)

@@ -9,8 +9,8 @@
 - `meta3level_0.6.2.tar.gz`：R 源码包，供 `install.packages()` 安装。
 - `run-meta-analysis-r-skill-v1.0.0.zip`：不安装 R 包时使用的独立 AI
   Skill。
-- `meta3level-完整使用说明书-v0.6.2.docx` 和同名 PDF：完整中文手册。
-- `meta3level-整套文件清单-v0.6.2.txt`：精确文件树。
+- `meta3level-user-manual-zh-CN-v0.6.2.docx` 和同名 PDF：完整中文手册。
+- `meta3level-file-manifest-v0.6.2.txt`：精确文件树。
 
 `SHA256SUMS.txt` 用于核对下载文件是否完整。
 

@@ -10,11 +10,11 @@
   文档、CI、示例和 AI Skill。
 - `meta3level_0.6.2.tar.gz`：可通过 R 安装的源码包。
 - `run-meta-analysis-r-skill-v1.0.0.zip`：可单独安装到 AI 编程工具中的 Skill。
-- `meta3level-完整使用说明书-v0.6.2.docx`：带自动目录、代码块和页码的中文
+- `meta3level-user-manual-zh-CN-v0.6.2.docx`：带自动目录、代码块和页码的中文
   Word 手册。
-- `meta3level-完整使用说明书-v0.6.2.pdf`：便于跨平台阅读和打印的中文 PDF
+- `meta3level-user-manual-zh-CN-v0.6.2.pdf`：便于跨平台阅读和打印的中文 PDF
   手册。
-- `meta3level-整套文件清单-v0.6.2.txt`：GitHub 仓库和 Release 附件的精确
+- `meta3level-file-manifest-v0.6.2.txt`：GitHub 仓库和 Release 附件的精确
   文件树。
 - `SHA256SUMS.txt`：所有主要交付文件的 SHA-256 校验值。
 

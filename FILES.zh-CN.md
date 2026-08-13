@@ -150,9 +150,9 @@
 | `RELEASE_NOTES.md` | 英文发布说明。 |
 | `RELEASE_NOTES.zh-CN.md` | 中文发布说明。 |
 | `SHA256SUMS.txt` | 主要交付文件的 SHA-256。 |
-| `meta3level-完整使用说明书-v0.6.2.docx` | 便于打印阅读的中文 Word 手册。 |
-| `meta3level-完整使用说明书-v0.6.2.pdf` | 便于跨平台阅读的中文 PDF 手册。 |
-| `meta3level-整套文件清单-v0.6.2.txt` | 仓库与 Release 附件的精确文件树。 |
+| `meta3level-user-manual-zh-CN-v0.6.2.docx` | 便于打印阅读的中文 Word 手册。 |
+| `meta3level-user-manual-zh-CN-v0.6.2.pdf` | 便于跨平台阅读的中文 PDF 手册。 |
+| `meta3level-file-manifest-v0.6.2.txt` | 仓库与 Release 附件的精确文件树。 |
 
 当前版本的公开身份与仓库地址已经写入发布元数据。每次发布仍应按照
 `RELEASE_CHECKLIST.md` 重新核对身份、构建归档与 SHA-256。不要将本机 R 库、

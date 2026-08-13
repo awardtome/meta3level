@@ -9,9 +9,9 @@ meta-analysis and a standalone Agent Skill for researchers who prefer native
 - `meta3level-github-v0.6.2.zip`: complete GitHub-ready repository.
 - `meta3level_0.6.2.tar.gz`: installable R source package.
 - `run-meta-analysis-r-skill-v1.0.0.zip`: standalone AI Skill.
-- `meta3level-完整使用说明书-v0.6.2.docx`: complete Chinese Word manual.
-- `meta3level-完整使用说明书-v0.6.2.pdf`: complete Chinese PDF manual.
-- `meta3level-整套文件清单-v0.6.2.txt`: exact repository and release file tree.
+- `meta3level-user-manual-zh-CN-v0.6.2.docx`: complete Chinese Word manual.
+- `meta3level-user-manual-zh-CN-v0.6.2.pdf`: complete Chinese PDF manual.
+- `meta3level-file-manifest-v0.6.2.txt`: exact repository and release file tree.
 - `SHA256SUMS.txt`: SHA-256 checksums for the main deliverables.
 
 ## Validation
