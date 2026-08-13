@@ -1,8 +1,6 @@
 # meta3level
 
-`meta3level` 是一套自动化三水平与普通随机效应元分析 R 包。当前版本为 `0.6.2`。
-所有公开函数都使用简短且独有的 `m3` 前缀，不使用下划线，尽量避免与
-`metafor`、`meta`、`dplyr` 等包发生函数名冲突。
+`meta3level` 是一套自动化三水平与普通随机效应元分析 R 包。本包是对众多元分析所需用到的r包的汇总，您可以只安装本包即可便捷展开自动化的元分析，包括作图。此外，本包还会输出原始代码供您审查。
 
 [English README](README.en.md) | [快速开始](docs/GETTING_STARTED.md) |
 [数据要求](docs/DATA_REQUIREMENTS.md) | [统计规则](docs/STATISTICAL_WORKFLOW.md) |
@@ -11,7 +9,7 @@
 [验证记录](VALIDATION.md) | [完整中文说明书](USER_MANUAL.zh-CN.md) |
 [整套文件说明](FILES.zh-CN.md)
 
-## 只需记住这些函数
+## 函数
 
 | 函数 | 用途 |
 |---|---|
@@ -22,7 +20,7 @@
 | `m3cont()` | 连续调节变量 |
 | `m3group()` | 分类调节变量 |
 | `m3spline()` | 非线性 spline 比较 |
-| `m3bias()` | 发表偏误与 PET-PEESE |
+| `m3bias()` | egger发表偏误与 PET-PEESE |
 | `m3leave()` | leave-one-out |
 | `m3run()` | 一键完成全部分析 |
 | `m3plot()` | 根据结果类型自动作图 |
