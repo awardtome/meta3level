@@ -1,6 +1,7 @@
 # meta3level
 
-`meta3level` 是一套自动化三水平与普通随机效应元分析 R 包。本包是对众多元分析所需用到的r包的汇总，您可以只安装本包即可便捷展开自动化的元分析，包括作图。此外，本包还会输出原始代码供您审查。
+`meta3level` 是一套自动化三水平与普通随机效应元分析 R 包。本包是对众多元分析所需用到的r包的汇总，您可以只安装本包即可便捷展开自动化的元分析，本包可运行单水平或三水平元分析。此外，本包还会输出原始代码供您审查。如果您还是觉得麻烦，可以使用本项目下包含的skill，安装到您的ai即可实现与本包一致的流程。
+This is an R package for automated three‑level and conventional random‑effects meta‑analysis. It integrates numerous existing R packages required for meta‑analysis. You only need to install this package to conveniently conduct automated meta‑analyses, supporting both single‑level and three‑level meta‑analysis. In addition, the package outputs raw code for your inspection. If you still find the workflow cumbersome, you may use the skill included in this project. Once installed to your AI, it can reproduce the identical analytical pipeline of this package.
 
 [English README](README.en.md) | [快速开始](docs/GETTING_STARTED.md) |
 [数据要求](docs/DATA_REQUIREMENTS.md) | [统计规则](docs/STATISTICAL_WORKFLOW.md) |
