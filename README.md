@@ -6,8 +6,7 @@ This is an R package for automated three‑level and conventional random‑effec
 [English README](README.en.md) | [快速开始](docs/GETTING_STARTED.md) |
 [数据要求](docs/DATA_REQUIREMENTS.md) | [统计规则](docs/STATISTICAL_WORKFLOW.md) |
 [结果与报告](docs/OUTPUT_AND_REPORTING.md) | [AI skill](docs/AI_SKILL.md) |
-[故障排查](docs/TROUBLESHOOTING.md) | [GitHub 发布](docs/PUBLISHING.md) |
-[验证记录](VALIDATION.md) | [完整中文说明书](USER_MANUAL.zh-CN.md) |
+[完整中文说明书](USER_MANUAL.zh-CN.md) |
 [整套文件说明](FILES.zh-CN.md)
 
 ## 函数
