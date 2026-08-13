@@ -66,8 +66,10 @@ jobs:
         shell: Rscript {0}
         run: source("tools/check-repository.R")
 
-      - name: Parse every R example in the Chinese user manual
-        run: Rscript tools/check-manual-code.R USER_MANUAL.zh-CN.md
+      - name: Parse every R example in both user manuals
+        run: |
+          Rscript tools/check-manual-code.R USER_MANUAL.zh-CN.md
+          Rscript tools/check-manual-code.R USER_MANUAL.en.md
 
       - name: Parse native R templates
         shell: Rscript {0}
@@ -85,7 +87,7 @@ jobs:
       - name: Install the package from the repository
         run: R CMD INSTALL .
 
-      - name: Run the Chinese user manual smoke test
+      - name: Run the user manual smoke test
         run: Rscript tools/smoke-test-user-manual.R .
 
       - name: Run every public example

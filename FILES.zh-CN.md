@@ -10,6 +10,9 @@
 |---|---|
 | `README.md` | 中文首页、功能概览、快速安装和常用代码。 |
 | `USER_MANUAL.zh-CN.md` | 完整中文使用说明书，涵盖全部公开函数和分析流程。 |
+| `USER_MANUAL.en.md` | 完整英文使用说明书，涵盖全部公开函数和分析流程。 |
+| `FUNCTION_REFERENCE.zh-CN.md` | 全部 18 个公开函数的中文简明速查。 |
+| `FUNCTION_REFERENCE.en.md` | 全部 18 个公开函数的英文简明速查。 |
 | `README.en.md` | 英文首页。 |
 | `RELEASE_NOTES.zh-CN.md` | 当前版本中文发布说明。 |
 | `RELEASE_NOTES.md` | 当前版本英文发布说明。 |
@@ -128,9 +131,9 @@
 | 文件 | 用途 |
 |---|---|
 | `tools/check-repository.R` | 检查版本、R 语法、Markdown 链接和占位符。 |
-| `tools/check-manual-code.R` | 逐个解析中文说明书中的 R 代码块，防止发布不可复制的示例。 |
+| `tools/check-manual-code.R` | 逐个解析中英文说明书中的 R 代码块，防止发布不可复制的示例。 |
 | `tools/smoke-test-user-manual.R` | 用合成数据执行手册覆盖的主要分析入口和效应量路径。 |
-| `tools/build-user-manual-html.R` | 把中文 Markdown 说明书转换为保留结构的 HTML 中间稿。 |
+| `tools/build-user-manual-html.R` | 把中英文 Markdown 说明书转换为保留结构的 HTML 中间稿。 |
 | `tools/build-user-manual.ps1` | 通过 Word 生成带目录、页眉页码和统一样式的 DOCX/PDF。 |
 | `tools/render-user-manual.R` | 将 PDF 逐页渲染并生成联系表，用于发布前视觉校验。 |
 | `tools/build-release.ps1` | 统一生成 GitHub ZIP、R 包、Skill ZIP、文件树和校验值。 |
@@ -152,6 +155,8 @@
 | `SHA256SUMS.txt` | 主要交付文件的 SHA-256。 |
 | `meta3level-user-manual-zh-CN-v0.6.2.docx` | 便于打印阅读的中文 Word 手册。 |
 | `meta3level-user-manual-zh-CN-v0.6.2.pdf` | 便于跨平台阅读的中文 PDF 手册。 |
+| `meta3level-user-manual-en-v0.6.2.docx` | 完整英文 Word 手册。 |
+| `meta3level-user-manual-en-v0.6.2.pdf` | 完整英文 PDF 手册。 |
 | `meta3level-file-manifest-v0.6.2.txt` | 仓库与 Release 附件的精确文件树。 |
 
 当前版本的公开身份与仓库地址已经写入发布元数据。每次发布仍应按照

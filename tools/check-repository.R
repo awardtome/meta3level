@@ -96,6 +96,39 @@ if (!any(grepl("Broken local Markdown link", failures, fixed = TRUE))) {
   pass(paste(length(markdown), "Markdown files have valid local links"))
 }
 
+namespaceLines <- readLines(file.path(root, "NAMESPACE"), warn = FALSE,
+                            encoding = "UTF-8")
+exportLines <- grep("^export\\(m3[[:alnum:]]+\\)$", namespaceLines,
+                    value = TRUE)
+publicFunctions <- sub("^export\\(([^)]+)\\)$", "\\1", exportLines)
+referenceFiles <- c(
+  "FUNCTION_REFERENCE.en.md",
+  "FUNCTION_REFERENCE.zh-CN.md",
+  "USER_MANUAL.en.md",
+  "USER_MANUAL.zh-CN.md"
+)
+for (relative in referenceFiles) {
+  path <- file.path(root, relative)
+  if (!file.exists(path)) {
+    fail(paste("Missing public-function documentation:", relative))
+    next
+  }
+  content <- paste(readLines(path, warn = FALSE, encoding = "UTF-8"),
+                   collapse = "\n")
+  missingFunctions <- publicFunctions[!vapply(publicFunctions, function(fun) {
+    grepl(paste0("`", fun, "()`"), content, fixed = TRUE)
+  }, logical(1))]
+  if (length(missingFunctions)) {
+    fail(paste(relative, "does not document exported function(s):",
+               paste(missingFunctions, collapse = ", ")))
+  }
+}
+if (!any(grepl("public-function documentation|does not document exported",
+               failures))) {
+  pass(paste(length(publicFunctions),
+             "exported functions covered by both manuals and quick references"))
+}
+
 allTextFiles <- list.files(
   root,
   recursive = TRUE,

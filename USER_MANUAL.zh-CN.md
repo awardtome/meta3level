@@ -1100,3 +1100,109 @@ sessionInfo()
 
 同时附上完整错误、最小可复现数据或脱敏示例、函数调用、效应量定义和预期行为。
 不要公开真实姓名、未脱敏研究编码表或受限制的数据。
+
+## 24. 全部公开函数简明指南
+
+`meta3level` 0.6.2 共导出 18 个 `m3*` 函数。下面按实际工作顺序说明每个函数
+何时使用、主要输出和最重要的注意事项。更详细的独立速查页见
+`FUNCTION_REFERENCE.zh-CN.md`。
+
+### 24.1 数据与效应量
+
+| 函数 | 何时使用 | 主要返回 |
+|---|---|---|
+| `m3read()` | 读取 CSV、TSV、TXT、XLSX 或 XLS 编码文件。 | 数据框及导入来源、编码、分隔符和表头修复记录。 |
+| `m3prep()` | 把 `r`、`d`、`g`、`OR` 或自定义统计量转换为模型数据。 | 含标准化 `studyID`、`effectID`、`yi`、`vi` 的数据。 |
+| `m3study()` | 普通元分析前，将同研究多个相关效应量合并为一个。 | 每研究一行的 GLS 合并数据及合并记录。 |
+
+`m3read()` 读取后应立即检查 `names(raw)` 和
+`attr(raw, "meta3_source")$name_map`。`m3prep()` 中的 `vi` 永远表示方差而非
+标准误；自定义效应量必须由研究者报告 `yi` 与 `vi` 的转换公式。`m3study()` 的
+`rho` 是假设的研究内抽样相关，应使用多个合理值做敏感性分析。
+
+### 24.2 模型与结果提取
+
+| 函数 | 何时使用 | 主要返回 |
+|---|---|---|
+| `m3fit()` | 拟合三水平/单水平主模型，或用 `mods` 自定义元回归。 | 原始 `metafor` 模型对象。 |
+| `m3effect()` | 提取截距或空模型总体效应。 | 分析尺度和报告尺度的估计、检验与 CI。 |
+| `m3ftest()` | 从使用 t/F 推断的调节模型提取整体检验。 | F、分子 df、分母 df 和 p。 |
+| `m3i2()` | 报告多层或普通异质性。 | Level 3、Level 2、总 I²或普通异质性表。 |
+| `m3lrt()` | 检验异质性方差成分。 | 单侧边界 LRT 表。 |
+
+```r
+model <- m3fit(dat, level = "three", method = "REML", f = TRUE)
+m3effect(model)
+m3i2(model)
+m3lrt(model)
+
+age_model <- m3fit(dat, mods = ~ age, f = TRUE)
+m3ftest(age_model)
+```
+
+`m3fit(..., f = TRUE)` 对系数使用 t 参考分布，对调节变量整体检验使用 F 参考
+分布；统计量在 `metafor` 对象内部仍可能保存在历史字段 `$QM`。包含调节变量时，
+`m3effect()` 提取的是截距，不是无条件总体效应。`m3lrt()` 检验方差成分，不能
+替代总体效应或调节效应检验。
+
+### 24.3 调节变量
+
+| 函数 | 何时使用 | 主要返回 |
+|---|---|---|
+| `m3cont()` | 分析一个连续调节变量。 | 中心化均值、系数、F、I² 和 LRT。 |
+| `m3group()` | 分析一个分类调节变量。 | 类别计数、参照组对比、各组合并效应和整体 F。 |
+| `m3spline()` | 比较线性和自然样条非线性模型。 | ML 模型、AIC/AICc/BIC 比较及简约选择。 |
+
+```r
+age <- m3cont(dat, var = "age", name = "平均年龄")
+design <- m3group(
+  dat, var = "design",
+  ref = "cross-sectional", name = "研究设计"
+)
+curve <- m3spline(dat, var = "age", df = 1:3, name = "年龄曲线")
+```
+
+`m3cont()` 按各自完整案例均值中心化，只拟合有截距模型；相关系数斜率位于
+Fisher-z 尺度。`m3group()` 同时给出参照组对比模型和无截距各组合并效应模型，
+`ref` 必须与实际类别完全一致。`m3spline()` 使用同一完整案例和 ML 比较候选
+模型，不应为了寻找显著结果不断提高 df。
+
+### 24.4 发表偏误与敏感性分析
+
+| 函数 | 何时使用 | 主要返回 |
+|---|---|---|
+| `m3bias()` | 检查小样本效应、漏斗图不对称及补充发表偏误证据。 | PET/PEESE、Egger、trim-and-fill 等结构化结果。 |
+| `m3leave()` | 检查单个效应量或整项研究对总体结果的影响。 | 完整模型效应和逐次删除结果表。 |
+
+```r
+bias <- m3bias(dat, rho = 0.60, extra = TRUE, level = "three")
+effect_loo <- m3leave(dat, by = "effect")
+study_loo <- m3leave(dat, by = "study")
+```
+
+Egger 显著表示小样本效应或漏斗图不对称，不等于已经证明发表偏误。不同方法
+出现分歧可以是真实统计现象。`m3leave()` 的 `$results` 包含删除 ID、删除/剩余
+效应量数、剩余研究数、合并效应、p、CI 和拟合错误。
+
+### 24.5 一键流程、作图与审计
+
+| 函数 | 何时使用 | 主要返回 |
+|---|---|---|
+| `m3run()` | 一次运行主效应、指定调节、发表偏误和两类 leave-one-out。 | 包含全部组件的 `meta3_workflow` 对象。 |
+| `m3plot()` | 根据结果对象自动选择森林图、调节图、样条图、漏斗图或敏感性图。 | 隐式返回预测数据或模型。 |
+| `m3report()` | 在控制台重新显示已有结果。 | 原结果对象；可附底层代码。 |
+| `m3code()` | 生成不依赖本包分析封装的底层可执行 R 代码。 | 代码字符向量；保存时另建 `_data.rds`。 |
+| `m3source()` | 查看安装版本真正执行的函数定义。 | 函数定义命名列表。 |
+
+```r
+result <- m3run(dat, bias = TRUE, leave = TRUE, show = TRUE)
+m3plot(result, "forest")
+m3plot(result, "study")
+m3report(result, code = TRUE)
+m3code(result, file = "analysis-audit.R")
+m3source("m3bias")
+```
+
+`m3run(..., keep = TRUE)` 只允许可选组件失败后继续，主模型失败仍会停止。保存
+`m3code()` 时，脚本与同名 `_data.rds` 必须一起保留，并在公开前检查数据快照。
+`m3source("all")` 可用于保存和审查安装版本的全部函数实现。

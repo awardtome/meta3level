@@ -10,6 +10,8 @@
 ^README\.en\.md$
 ^FILES\.zh-CN\.md$
 ^USER_MANUAL\.zh-CN\.md$
+^USER_MANUAL\.en\.md$
+^FUNCTION_REFERENCE\.(en|zh-CN)\.md$
 ^RELEASE_CHECKLIST\.md$
 ^RELEASE_NOTES\.md$
 ^RELEASE_NOTES\.zh-CN\.md$

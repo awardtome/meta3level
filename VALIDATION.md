@@ -58,14 +58,19 @@ absolute source path, or substantive result is stored in this repository.
 
 ## User manual checks
 
-- All 57 fenced R code blocks in `USER_MANUAL.zh-CN.md` parsed successfully.
+- All 61 fenced R code blocks in `USER_MANUAL.zh-CN.md` and all 75 fenced R
+  code blocks in `USER_MANUAL.en.md` parsed successfully.
 - The user-manual smoke test completed the three-level and conventional
   single-level workflows, continuous and categorical moderators, ML spline
   comparison, PET-PEESE, both leave-one-out analyses, plots, d-to-g conversion,
   and odds-ratio preparation.
-- Word generated a 36-page DOCX and PDF with one automatic table of contents.
-  All pages were rendered to PNG and visually inspected; no overlap, clipped
-  code, table overflow, blank-page anomaly, or CJK rendering failure was found.
+- Word generated a 41-page Chinese DOCX/PDF and a 40-page English DOCX/PDF,
+  each with one automatic table of contents. All 81 pages were rendered to PNG
+  and visually inspected; no overlap, clipped code, table overflow, blank-page
+  anomaly, or CJK rendering failure was found.
+- Both complete manuals and both concise function references cover all 18
+  functions exported in `NAMESPACE`. Repository validation checks this coverage
+  automatically.
 
 This record documents software behavior on the stated platform. GitHub Actions
 repeats package checks on current Windows, macOS, and Ubuntu runners and on

@@ -2,7 +2,8 @@
   [Parameter(Mandatory = $true)][string]$MarkdownPath,
   [Parameter(Mandatory = $true)][string]$HtmlPath,
   [Parameter(Mandatory = $true)][string]$DocxPath,
-  [Parameter(Mandatory = $true)][string]$PdfPath
+  [Parameter(Mandatory = $true)][string]$PdfPath,
+  [ValidateSet("zh-CN", "en")][string]$Language = "zh-CN"
 )
 
 $ErrorActionPreference = "Stop"
@@ -34,6 +35,13 @@ $pdf = [System.IO.Path]::GetFullPath($PdfPath)
 $firstLine = Get-Content -LiteralPath $markdown -Encoding UTF8 -TotalCount 1
 $title = ($firstLine -replace '^#[ ]+', '').Trim()
 if (-not $title) { $title = "meta3level 0.6.2 Complete User Manual" }
+$isEnglish = $Language -eq "en"
+$tocTitle = if ($isEnglish) { "Table of Contents" } else { "目录" }
+$headerText = if ($isEnglish) {
+  "meta3level 0.6.2  |  Complete English User Manual"
+} else {
+  "meta3level 0.6.2  |  完整使用说明书"
+}
 
 $word = $null
 $document = $null
@@ -118,7 +126,7 @@ try {
   $selection.InsertBreak(7)
 
   $selection.Style = $heading1
-  $selection.TypeText("目录")
+  $selection.TypeText($tocTitle)
   $selection.TypeParagraph()
   $tocRange = $selection.Range
   $toc = $document.TablesOfContents.Add($tocRange, $true, 1, 3)
@@ -159,7 +167,7 @@ try {
   foreach ($section in @($document.Sections)) {
     $section.PageSetup.DifferentFirstPageHeaderFooter = -1
     $header = $section.Headers.Item(1).Range
-    $header.Text = "meta3level 0.6.2  |  完整使用说明书"
+    $header.Text = $headerText
     SetFont $header.Font "Calibri" "Microsoft YaHei" 8.5
     $header.Font.Color = WordColor 112 128 144
     $header.ParagraphFormat.Alignment = 0

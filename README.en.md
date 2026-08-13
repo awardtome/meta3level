@@ -8,10 +8,11 @@ Hedges' g, odds ratios, and effect sizes supplied with known sampling variances.
 [Data requirements](docs/DATA_REQUIREMENTS.md) |
 [Statistical workflow](docs/STATISTICAL_WORKFLOW.md) |
 [Output and reporting](docs/OUTPUT_AND_REPORTING.md) |
-[AI skill](docs/AI_SKILL.md) | [Troubleshooting](docs/TROUBLESHOOTING.md) |
-[GitHub publishing](docs/PUBLISHING.md) | [Validation](VALIDATION.md)
+[AI skill](docs/AI_SKILL.md) | [Complete English manual](USER_MANUAL.en.md) |
+[Function reference](FUNCTION_REFERENCE.en.md)
 
-Chinese resources: [complete user manual](USER_MANUAL.zh-CN.md) and
+Chinese resources: [complete user manual](USER_MANUAL.zh-CN.md),
+[function reference](FUNCTION_REFERENCE.zh-CN.md), and
 [repository file guide](FILES.zh-CN.md).
 
 ## Design goals

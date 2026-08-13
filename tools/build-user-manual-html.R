@@ -12,6 +12,7 @@ if (!requireNamespace("commonmark", quietly = TRUE)) {
 
 lines <- readLines(input, warn = FALSE, encoding = "UTF-8")
 if (!length(lines)) stop("The manual source is empty.", call. = FALSE)
+document_title <- sub("^#[[:space:]]+", "", lines[[1]])
 
 # The title is created separately on the Word cover page.
 if (grepl("^#[[:space:]]+", lines[[1]])) lines <- lines[-1]
@@ -58,7 +59,7 @@ css <- paste(
 
 document <- paste0(
   "<!doctype html>\n<html><head><meta charset=\"utf-8\">\n",
-  "<title>meta3level 0.6.2 Complete User Manual</title>\n",
+  "<title>", document_title, "</title>\n",
   "<style>\n", css, "\n</style></head><body>\n",
   body,
   "\n</body></html>\n"

@@ -10,6 +10,7 @@
 - `run-meta-analysis-r-skill-v1.0.0.zip`：不安装 R 包时使用的独立 AI
   Skill。
 - `meta3level-user-manual-zh-CN-v0.6.2.docx` 和同名 PDF：完整中文手册。
+- `meta3level-user-manual-en-v0.6.2.docx` 和同名 PDF：完整英文手册。
 - `meta3level-file-manifest-v0.6.2.txt`：精确文件树。
 
 `SHA256SUMS.txt` 用于核对下载文件是否完整。
@@ -42,6 +43,7 @@ GitHub。包内示例数据必须保持为合成数据。
 ```powershell
 Rscript tools/check-repository.R
 Rscript tools/check-manual-code.R USER_MANUAL.zh-CN.md
+Rscript tools/check-manual-code.R USER_MANUAL.en.md
 Rscript tools/smoke-test-native-template.R
 Rscript tools/smoke-test-user-manual.R .
 R CMD build .
@@ -67,7 +69,7 @@ git push -u origin main
 
 1. 在检查全部通过后创建标签 `v0.6.2`。
 2. 以 `NEWS.md` 为基础撰写 Release Notes。
-3. 附加 R 源码包、独立 Skill ZIP、中文 DOCX/PDF 手册、精确文件树和
+3. 附加 R 源码包、独立 Skill ZIP、中英文 DOCX/PDF 手册、精确文件树和
    `SHA256SUMS.txt`。
 4. 在 Release Notes 中注明 R 版本、`R CMD check` 状态和已测试的效应量。
 

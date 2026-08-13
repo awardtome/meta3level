@@ -29,6 +29,7 @@ BugReports: https://github.com/awardtome/meta3level/issues
 ```powershell
 Rscript tools/check-repository.R
 Rscript tools/check-manual-code.R USER_MANUAL.zh-CN.md
+Rscript tools/check-manual-code.R USER_MANUAL.en.md
 Rscript tools/smoke-test-native-template.R
 Rscript tools/smoke-test-user-manual.R .
 R CMD build .
@@ -41,7 +42,7 @@ R CMD check --as-cran --no-manual meta3level_0.6.2.tar.gz
 - Validate `skills/run-meta-analysis-r` with the skill validator.
 - Test package installation in a clean R library.
 - Confirm `m3code()` produces runnable native audit code.
-- Rebuild the DOCX/PDF manual and visually inspect all rendered pages.
+- Rebuild both DOCX/PDF manuals and visually inspect all rendered pages.
 
 ## GitHub release
 
@@ -49,6 +50,6 @@ R CMD check --as-cran --no-manual meta3level_0.6.2.tar.gz
 2. Push the default branch and confirm all CI jobs pass.
 3. Tag `v0.6.2`.
 4. Create a GitHub release from that tag.
-5. Attach the R source archive, standalone Skill ZIP, Chinese DOCX/PDF manual,
-   exact file-tree manifest, and `SHA256SUMS.txt`.
+5. Attach the R source archive, standalone Skill ZIP, Chinese and English
+   DOCX/PDF manuals, exact file-tree manifest, and `SHA256SUMS.txt`.
 6. Record or link the SHA-256 hashes in the release notes.
